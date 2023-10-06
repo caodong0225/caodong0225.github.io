@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>txt 文件上传预览</title>
+        <style type="text/css">
+            .warp {
+                display: inline-block;
+                vertical-align: bottom;
+                position: relative;
+ 
+            }
+ 
+            .warp-content {
+                border: 1px solid red;
+                width: 150px;
+                height: 150px;
+                line-height: 150px;
+                text-align: center;
+            }
+ 
+            input {
+                position: absolute;
+                top: 0;
+                left: 0;
+                border: 1px solid red;
+                width: 150px;
+                height: 150px;
+                opacity: 0;
+                cursor: pointer;
+            }
+ 
+            img {
+                width: 600px;
+                height: 600px;
+                border: 1px solid red;
+                margin-top: 50px;
+                vertical-align: bottom;
+            }
+        </style>    
+</head>
+<body>
+<div>
+            <div class="warp">
+                <div class="warp-content">点击上传txt文件</div>
+                <input accept=".txt" id="fileInput" type="file">
+</div>
+<textarea cols="50" id="textArea" rows="10"></textarea>
+</div>
+        <div class="fileBox">
+             
+            <div class="warp">
+                <div class="warp-content">点击上传图片文件</div>
+                <input type="file" id="file" />
+</div>
+    <img src="" />
+</div>
+<button type="button" onclick=httpPost("http://127.0.0.1:8999/register",{"text":text,"pic":pic})>确定</button>
+<script type="application/javascript">
+	var file = document.getElementById('file');
+	var image = document.querySelector("img");
+	file.onchange = function() {
+		var fileData = this.files[0];//获取到一个FileList对象中的第一个文件( File 对象),是我们上传的文件
+		var pettern = /^image/;
+		 
+		console.info(fileData.type)
+
+		if (!pettern.test(fileData.type)) {
+			alert("图片格式不正确");
+			return;
+		}
+		var reader = new FileReader();
+		reader.readAsDataURL(fileData);//异步读取文件内容，结果用data:url的字符串形式表示
+		/*当读取操作成功完成时调用*/
+		reader.onload = function(e) {
+			console.log(e); //查看对象
+			console.log(this.result);//要的数据 这里的this指向FileReader（）对象的实例reader
+			image.setAttribute("src", this.result);
+			pic = this.result;
+			//alert(this.result);
+		}
+		
+	}	
+	
+//发送POST请求跳转到指定页面
+function httpPost(URL, PARAMS) {
+    var temp = document.createElement("form");
+    temp.action = URL;
+    temp.method = "post";
+    temp.style.display = "none";
+
+    for (var x in PARAMS) {
+        var opt = document.createElement("textarea");
+        opt.name = x;
+        opt.value = PARAMS[x];
+        temp.appendChild(opt);
+    }
+
+    document.body.appendChild(temp);
+    temp.submit();
+
+    return temp;
+}
+    const fileInput = document.getElementById("fileInput");
+    fileInput.addEventListener("change", uploadFile);
+
+    function uploadFile() {
+        let file = fileInput.files[0]; // 获取用户选择的第一个文件
+        let reader = new FileReader(); // 创建 FileReader 对象
+        reader.onload = showFile; // 添加 onload 事件监听器
+        reader.readAsText(file, "utf-8"); // 以 utf-8 编码格式读取文件内容
+    }
+
+    function showFile(e) {
+        let content = e.target.result; // 获取 FileReader 对象的 result 属性
+        let textArea = document.getElementById("textArea"); // 获取文本区域的元素对象
+        textArea.value = content; // 将字符串赋值给文本区域的 value 属性
+		text = content;
+    }
+</script>
+</body>
+</html>
