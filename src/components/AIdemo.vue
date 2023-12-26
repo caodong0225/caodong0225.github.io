@@ -46,9 +46,9 @@
                 <li>AI演示</li>
               </ul>
             </div>
-              
-          </div> 
-          
+
+          </div>
+
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic11.jpg">
@@ -66,8 +66,8 @@
                 <li>AI演示</li>
               </ul>
             </div>
-              
-          </div>           
+
+          </div>
 
           <div class="archives-item">
             <div class="archives-pic">
@@ -86,8 +86,8 @@
                 <li>AI演示</li>
               </ul>
             </div>
-              
-          </div> 
+
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
                 <img src="../../static/images/AI2.png">
@@ -106,12 +106,12 @@
                 <li>AI演示</li>
               </ul>
             </div>
-          </div>      
+          </div>
 
         </div>
       </div>
-      
- 
+
+
       <div class="tag-model" v-show="isshowTagModel" @click="showTagModel()">
         <div class="tag-wrapper">
             <p @click.stop="$parent.location('/ctf')">CTF</p>
@@ -125,7 +125,7 @@
       </div>
     </div>
   </template>
-  
+
   <script>
   import axios from 'axios'
     export default {
@@ -141,7 +141,11 @@
           message_waiting:false,
           html_waiting:false,
           password_waiting:false,
-          url_head:this.$global.baseURL   
+          url_head:this.$global.baseURL,
+          password:"",
+          html:"",
+          message:"",
+          url:"",
         }
       },
       methods:{
@@ -149,11 +153,11 @@
           this.isshowTagModel = !this.isshowTagModel;
         },
         selectTag(event){
-          
+
         },
         detect_url() {
           this.url_waiting = true;
-          axios.get(this.url_head+'01'+this.url,{timeout: 10000}).then(response =>{
+          axios.get(this.url_head+'/get_url?input='+this.url,{timeout: 10000}).then(response =>{
                 const getdata = response.data;
                 this.url_result = getdata;
                 this.url_waiting = false;
@@ -161,47 +165,47 @@
                 alert("网络连接故障！")
                 this.url_waiting = false;
                 }
-                )  
-          
+                )
+
         },
-      
+
         detect_message() {
           this.message_waiting = true;
-          axios.get(this.url_head+'02'+this.message,{timeout: 10000}).then(response =>{
+          axios.get(this.url_head+'/get_message?input='+this.message,{timeout: 10000}).then(response =>{
                 const getdata = response.data;
                 this.message_result = getdata;
                 this.message_waiting = false;
                 }, error =>{
                 alert("网络连接故障！");
                 this.message_waiting = false;
-                })  
-        },    
+                })
+        },
         detect_html(){
           this.html_waiting = true;
-          axios.get(this.url_head+'03'+this.html,{timeout: 10000}).then(response =>{
+          axios.get(this.url_head+'/get_web?input='+this.html,{timeout: 10000}).then(response =>{
                 const getdata = response.data;
                 this.html_result = getdata;
                 this.html_waiting = false;
                 }, error =>{
                 alert("网络连接故障！");
                 this.html_waiting = false;
-                })  
-        },   
+                })
+        },
         generate_password(){
           this.password_waiting = true;
-          axios.get(this.url_head+'04'+this.password,{timeout: 10000}).then(response =>{
+          axios.get(this.url_head+'/get_password?input='+this.password,{timeout: 10000}).then(response =>{
                 const getdata = response.data;
                 this.password_result = getdata;
                 this.password_waiting = false;
                 }, error =>{
                 alert("网络连接故障！");
                 this.password_waiting = false;
-                })  
-        }                       
+                })
+        }
       }
     }
   </script>
-  
+
   <style scoped>
     .tag-model{
       position: fixed;
@@ -283,7 +287,7 @@
       box-shadow: 0 1px 2px rgba(151,151,151,0.58);
       margin-bottom: 10px;
       margin-top: 10px;
-  
+
     }
     .archives-time{
       margin: 0 0 10px;
@@ -310,7 +314,7 @@
     border: 2px solid #fff;
     overflow: hidden;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-  }  
+  }
   .archives-tag
   {
     position: relative;
@@ -366,17 +370,4 @@
   width:4px;
   height:4px;
 }
-.textareaText::-webkit-scrollbar-thumb{
-  border-radius:5px;
-  box-shadow: inset005pxrgba(0,0,0,0.2);
-  -webkit-box-shadow: inset005pxrgba(0,0,0,0,0.2);
-  background: rgba(0,0,0,0,0.2);
-}
-.textareaText::-webkit-scrollbar-track{
-  box-shadow: inset005pxrgba(0,0,0,0,0.1);
-  -webkit-box-shadow: inset005pxrgba(0,0,0,0,0.1);
-  border-radius: 0;
-  background: rgba(0,0,0,0,0.1);
-}    
   </style>
-  

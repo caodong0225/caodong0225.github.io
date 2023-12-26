@@ -19,7 +19,7 @@
         <div class="archives-list">
             <div class="archives-item">
             <div class="archives-pic">
-              <img src="../../static/images/pic1.jpg" @click="$parent.location('/archives/article1')">
+              <img src="../../static/images/pic1.jpg" @click="$parent.location('/archives/article1')" alt="">
             </div>
             <p class="archives-time">2023年01月06日</p>
             <h3 class="archives-title" @click="$parent.location('/archives/article1')">人工智能学习笔记一——激活函数</h3>
@@ -31,7 +31,7 @@
           </div>
           <div class="archives-item">
             <div class="archives-pic">
-              <img src="../../static/images/pic2.png" @click="$parent.location('/archives/article2')">
+              <img src="../../static/images/pic2.png" @click="$parent.location('/archives/article2')" alt="">
             </div>
             <p class="archives-time">2023年01月08日</p>
             <h3 class="archives-title" @click="$parent.location('/archives/article2')">人工智能学习笔记二——神经网络</h3>
@@ -39,8 +39,8 @@
               <ul>
                 <li>人工智能</li>
               </ul>
-            </div>  
-          </div> 
+            </div>
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic3.jpg" @click="$parent.location('/archives/article3')">
@@ -52,8 +52,8 @@
                 <li>人工智能</li>
                 <li>计算机视觉</li>
               </ul>
-            </div>  
-          </div> 
+            </div>
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic4.jpg" @click="$parent.location('/archives/article4')">
@@ -66,7 +66,7 @@
                 <li>计算机视觉</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic6.png" @click="$parent.location('/archives/article6')">
@@ -78,7 +78,7 @@
                 <li>人工智能</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic8.jpg" @click="$parent.location('/archives/article8')">
@@ -171,7 +171,7 @@
       </div>
     </div>
   </template>
-  
+
   <script>
     export default {
       name: "Tag",
@@ -185,12 +185,12 @@
           this.isshowTagModel = !this.isshowTagModel;
         },
         selectTag(event){
-          
+
         }
       }
     }
   </script>
-  
+
   <style scoped>
     .tag-model{
       position: fixed;
@@ -246,11 +246,10 @@
     min-height: calc(100vh - 270px);
   }
     .archive-separator{
-      margin: 10px 0;
       color: #3f51b5;
       font-size: 16px;
       font-weight: bold;
-      margin-top: 30px;
+      margin: 30px 0 10px;
     }
     .main-wrapper {
       flex: 1;
@@ -272,7 +271,7 @@
       box-shadow: 0 1px 2px rgba(151,151,151,0.58);
       margin-bottom: 10px;
       margin-top: 10px;
-  
+
     }
     .archives-time{
       margin: 0 0 10px;
@@ -299,7 +298,7 @@
     border: 2px solid #fff;
     overflow: hidden;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-  }  
+  }
   .archives-tag
   {
     position: relative;
@@ -335,4 +334,3 @@
       border-bottom: 2px solid #ff4081;;
     }
   </style>
-  

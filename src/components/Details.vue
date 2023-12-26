@@ -37,9 +37,6 @@
   .md{
     box-shadow: none;
   }
-  .v-note-wrapper.shadow{
-    box-shadow: none !important;
-  }
   .v-note-wrapper .v-note-panel .v-note-show .v-show-content, .v-note-wrapper .v-note-panel .v-note-show .v-show-content-html{
     background: #fff !important;
   }
@@ -73,8 +70,5 @@
     color: rgb(114, 114, 114);
     margin: 8px 0px 10px;
     overflow: hidden;
-  }
-  .v-note-wrapper{
-    z-index: 0 !important;
   }
 </style>

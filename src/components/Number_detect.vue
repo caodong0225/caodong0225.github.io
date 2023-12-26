@@ -1,15 +1,15 @@
 <template>
     <div class="number_detect">
-      <vue-esign 
-        ref="esign" 
+      <vue-esign
+        ref="esign"
         class="write_detect"
-        :width="300" 
-        :height="300" 
-        :isCrop="isCrop" 
+        :width="300"
+        :height="300"
+        :isCrop="isCrop"
         :lineWidth=16
         :lineColor="red"
         />
-      <button @click="handleReset">清空画板</button> 
+      <button @click="handleReset">清空画板</button>
       <button @click="handleGenerate" :disabled=isClick>识别数字</button>
       <div>
         <img :src="imgSrc" width="400" height="400">
@@ -40,21 +40,21 @@
       },
       // 生成签名的base64图片
       handleGenerate () {
-        
-        this.$refs.esign.generate().then(res => {          
+
+        this.$refs.esign.generate().then(res => {
           const newstring = this.base64Img(res);
           this.isClick = true;
           //发送get请求
 
-          axios.get(this.$global.baseURL+'00'+newstring,{timeout: 10000}).then(response =>{
+          axios.get(this.$global.baseURL+'/get_MNIST?input='+newstring,{timeout: 10000}).then(response =>{
             const getdata = response.data;
             this.imgSrc = res.split(",")[0] +","+ getdata;
             this.isClick = false;
             }, error =>{
             alert("网络连接故障！")
             this.isClick = false;
-            })  
-          
+            })
+
         }).catch(err => {
           //console.log('画布没有签字时会执行这里 Not Signned')
         })

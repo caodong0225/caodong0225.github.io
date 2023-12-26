@@ -46,7 +46,7 @@
           </div>
         </li>
       </ul>
-    </div>    
+    </div>
     <div class="index-wrapper">
       <ul>
         <li class="blog-wrapper">
@@ -66,7 +66,7 @@
           </div>
         </li>
       </ul>
-    </div>       
+    </div>
     <div class="index-wrapper">
       <ul>
         <li class="blog-wrapper">
@@ -86,7 +86,7 @@
           </div>
         </li>
       </ul>
-    </div>  
+    </div>
     <div class="index-wrapper">
       <ul>
         <li class="blog-wrapper">
@@ -106,7 +106,7 @@
           </div>
         </li>
       </ul>
-    </div>  
+    </div>
     <div class="index-wrapper">
       <ul>
         <li class="blog-wrapper">
@@ -129,7 +129,7 @@
           </div>
         </li>
       </ul>
-    </div> 
+    </div>
     <div class="index-wrapper">
       <ul>
         <li class="blog-wrapper">
@@ -152,7 +152,7 @@
           </div>
         </li>
       </ul>
-    </div> 
+    </div>
     <div class="index-wrapper">
       <ul>
         <li class="blog-wrapper">
@@ -175,7 +175,7 @@
           </div>
         </li>
       </ul>
-    </div>          
+    </div>
     <div class="index-wrapper">
       <ul>
         <li class="blog-wrapper">
@@ -199,7 +199,7 @@
           </div>
         </li>
       </ul>
-    </div>               
+    </div>
   </div>
 </template>
 
@@ -217,14 +217,18 @@ export default {
       message_waiting:false,
       html_waiting:false,
       password_waiting:false,
-      url_head:this.$global.baseURL
+      url_head:this.$global.baseURL,
+      password:"",
+      html:"",
+      message:"",
+      url:"",
     }
   },
   methods:
   {
     detect_url() {
       this.url_waiting = true;
-      axios.get(this.url_head+'01'+this.url,{timeout: 10000}).then(response =>{
+      axios.get(this.url_head+'/get_url?input='+this.url,{timeout: 10000}).then(response =>{
             const getdata = response.data;
             this.url_result = getdata;
             this.url_waiting = false;
@@ -232,42 +236,42 @@ export default {
             alert("网络连接故障！")
             this.url_waiting = false;
             }
-            )  
-      
+            )
+
     },
-  
+
     detect_message() {
       this.message_waiting = true;
-      axios.get(this.url_head+'02'+this.message,{timeout: 10000}).then(response =>{
+      axios.get(this.url_head+'/get_message?input='+this.message,{timeout: 10000}).then(response =>{
             const getdata = response.data;
             this.message_result = getdata;
             this.message_waiting = false;
             }, error =>{
             alert("网络连接故障！");
             this.message_waiting = false;
-            })  
-    },    
+            })
+    },
     detect_html(){
       this.html_waiting = true;
-      axios.get(this.url_head+'03'+this.html,{timeout: 10000}).then(response =>{
+      axios.get(this.url_head+'/get_web?input='+this.html,{timeout: 10000}).then(response =>{
             const getdata = response.data;
             this.html_result = getdata;
             this.html_waiting = false;
             }, error =>{
             alert("网络连接故障！");
             this.html_waiting = false;
-            })  
-    },          
+            })
+    },
     generate_password(){
       this.password_waiting = true;
-      axios.get(this.url_head+'04'+this.password,{timeout: 10000}).then(response =>{
+      axios.get(this.url_head+'/get_password?input='+this.password,{timeout: 10000}).then(response =>{
             const getdata = response.data;
             this.password_result = getdata;
             this.password_waiting = false;
             }, error =>{
             alert("网络连接故障！");
             this.password_waiting = false;
-            })  
+            })
     }
 
   },
@@ -357,17 +361,6 @@ export default {
   width:4px;
   height:4px;
 }
-.textareaText::-webkit-scrollbar-thumb{
-  border-radius:5px;
-  box-shadow: inset005pxrgba(0,0,0,0.2);
-  -webkit-box-shadow: inset005pxrgba(0,0,0,0,0.2);
-  background: rgba(0,0,0,0,0.2);
-}
-.textareaText::-webkit-scrollbar-track{
-  box-shadow: inset005pxrgba(0,0,0,0,0.1);
-  -webkit-box-shadow: inset005pxrgba(0,0,0,0,0.1);
-  border-radius: 0;
-  background: rgba(0,0,0,0,0.1);
-}
+
 
 </style>

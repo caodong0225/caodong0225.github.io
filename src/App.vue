@@ -10,15 +10,15 @@
             </div>
             <div class="menu-wrapper">
               <ul>
-                <li :class="{'li-active':active=='blog'}" @click="changeMenu('blog','/blog')">
+                <li :class="{'li-active':active==='blog'}" @click="changeMenu('blog','/blog')">
                   <i class="iconfont icon-home"></i>
                   <p>个人主页</p>
                 </li>
-                <li :class="{'li-active':active=='archives'}" @click="changeMenu('archives','/archives')">
+                <li :class="{'li-active':active==='archives'}" @click="changeMenu('archives','/archives')">
                   <i class="iconfont icon-Archives"></i>
                   <p>博客历史</p>
                 </li>
-                <li :class="{'li-active':active=='tag'}" @click="changeMenu('tag','/ctf')">
+                <li :class="{'li-active':active==='tag'}" @click="changeMenu('tag','/ctf')">
                   <i class="iconfont icon-tag"></i>
                   <p>文章分类</p>
                 </li>
@@ -32,7 +32,7 @@
         </aside>
       </transition>
       <div class="main-wrapper">
-        
+
         <div class="nav-wrapper" :class="{'nav-shadow':navShadow}" >
           <i class="iconfont" :class="{'icon-close move-right' :menuStatus, 'icon-menu move-left':!menuStatus}" @click="asideStatus()"></i>
           <!--<i class="iconfont icon-share"></i>
@@ -41,7 +41,7 @@
             <input type="text" placeholder="输入感兴趣的关键字">
           </div>-->
         </div>
-        
+
         <router-view/>
         <div class="footer">
           <div class="copyright">
@@ -76,14 +76,7 @@ export default {
     // 监听窗口滚动
     isScroll(){
       var scrollTop = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
-      if(scrollTop == 0)
-      {
-        //滚动条为0
-        this.navShadow = false;
-      }else {
-        //滚动条不为0
-        this.navShadow = true;
-      }
+      this.navShadow = scrollTop !== 0;
     },
 
     //切换左边菜单栏显示状态
@@ -132,7 +125,7 @@ export default {
 </script>
 
 <style>
-  ul {list-style:none;margin:0px;}
+  ul {list-style:none;margin:0;}
   *{
     margin: 0;
     padding: 0;
@@ -289,11 +282,11 @@ export default {
   @keyframes moveLeft
   {
     from {left:240px;}
-    to {left:0px;}
+    to {left:0;}
   }
   @keyframes moveRight
   {
-    from {left:0px;}
+    from {left:0;}
     to {left:240px;}
   }
 
@@ -309,13 +302,13 @@ export default {
   }
   @keyframes amplify
   {
-    from {width:0px;}
+    from {width:0;}
     to {width:330px;}
   }
   @keyframes narrow
   {
     from {width:330px;}
-    to {width:0px;}
+    to {width:0;}
   }
   .search-wrapper{
     width: 330px;
@@ -325,7 +318,7 @@ export default {
     border-bottom: 2px solid #fff;
     right: 56px;
     top: 8px;
-    font-size: 0px;
+    font-size: 0;
   }
   .search-wrapper input{
     width: 100%;

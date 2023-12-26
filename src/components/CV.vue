@@ -28,8 +28,8 @@
                 <li>人工智能</li>
                 <li>计算机视觉</li>
               </ul>
-            </div>  
-          </div> 
+            </div>
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic4.jpg" @click="$parent.location('/archives/article4')">
@@ -42,7 +42,7 @@
                 <li>计算机视觉</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic13.png" @click="$parent.location('/archives/article13')">
@@ -71,7 +71,7 @@
       </div>
     </div>
   </template>
-  
+
   <script>
     export default {
       name: "Tag",
@@ -85,12 +85,12 @@
           this.isshowTagModel = !this.isshowTagModel;
         },
         selectTag(event){
-          
+
         }
       }
     }
   </script>
-  
+
   <style scoped>
     .tag-model{
       position: fixed;
@@ -146,11 +146,10 @@
     min-height: calc(100vh - 270px);
   }
     .archive-separator{
-      margin: 10px 0;
       color: #3f51b5;
       font-size: 16px;
       font-weight: bold;
-      margin-top: 30px;
+      margin: 30px 0 10px;
     }
     .main-wrapper {
       flex: 1;
@@ -172,7 +171,7 @@
       box-shadow: 0 1px 2px rgba(151,151,151,0.58);
       margin-bottom: 10px;
       margin-top: 10px;
-  
+
     }
     .archives-time{
       margin: 0 0 10px;
@@ -199,7 +198,7 @@
     border: 2px solid #fff;
     overflow: hidden;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-  }  
+  }
   .archives-tag
   {
     position: relative;
@@ -235,4 +234,3 @@
       border-bottom: 2px solid #ff4081;;
     }
   </style>
-  

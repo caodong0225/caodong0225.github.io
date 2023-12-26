@@ -106,7 +106,7 @@
         this.isshowTagModel = !this.isshowTagModel;
       },
       selectTag(event){
-        
+
       }
     }
   }
@@ -167,11 +167,10 @@
     min-height: calc(100vh - 270px);
   }
   .archive-separator{
-    margin: 10px 0;
     color: #3f51b5;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 30px;
+    margin: 30px 0 10px;
   }
   .main-wrapper {
     flex: 1;

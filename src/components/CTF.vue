@@ -29,7 +29,7 @@
                 <li>密码学</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic7.jpg" @click="$parent.location('/archives/article7')">
@@ -42,7 +42,7 @@
                 <li>密码学</li>
               </ul>
             </div>
-          </div> 
+          </div>
         </div>
       </div>
       <div class="tag-model" v-show="isshowTagModel" @click="showTagModel()">
@@ -58,7 +58,7 @@
       </div>
     </div>
   </template>
-  
+
   <script>
     export default {
       name: "Tag",
@@ -72,12 +72,12 @@
           this.isshowTagModel = !this.isshowTagModel;
         },
         selectTag(event){
-          
+
         }
       }
     }
   </script>
-  
+
   <style scoped>
     .tag-model{
       position: fixed;
@@ -133,11 +133,10 @@
     min-height: calc(100vh - 270px);
   }
     .archive-separator{
-      margin: 10px 0;
       color: #3f51b5;
       font-size: 16px;
       font-weight: bold;
-      margin-top: 30px;
+      margin: 30px 0 10px;
     }
     .main-wrapper {
       flex: 1;
@@ -185,7 +184,7 @@
     border: 2px solid #fff;
     overflow: hidden;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-  }  
+  }
   .archives-tag
   {
     position: relative;
@@ -221,4 +220,3 @@
       border-bottom: 2px solid #ff4081;;
     }
   </style>
-  

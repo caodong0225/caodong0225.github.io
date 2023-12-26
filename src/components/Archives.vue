@@ -31,8 +31,8 @@
               <ul>
                 <li>人工智能</li>
               </ul>
-            </div>  
-          </div> 
+            </div>
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic3.jpg" @click="$parent.location('/archives/article3')">
@@ -44,8 +44,8 @@
                 <li>人工智能</li>
                 <li>计算机视觉</li>
               </ul>
-            </div>  
-          </div> 
+            </div>
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic4.jpg" @click="$parent.location('/archives/article4')">
@@ -58,7 +58,7 @@
                 <li>计算机视觉</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic5.png" @click="$parent.location('/archives/article5')">
@@ -71,7 +71,7 @@
                 <li>密码学</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic6.png" @click="$parent.location('/archives/article6')">
@@ -83,7 +83,7 @@
                 <li>人工智能</li>
               </ul>
             </div>
-          </div> 
+          </div>
           <div class="archives-item">
             <div class="archives-pic">
               <img src="../../static/images/pic7.jpg" @click="$parent.location('/archives/article7')">
@@ -96,7 +96,7 @@
                 <li>密码学</li>
               </ul>
             </div>
-          </div> 
+          </div>
         </div>
         <h3 class="archive-separator">2023年03月</h3>
         <div class="archives-list">
@@ -155,7 +155,7 @@
               </ul>
             </div>
           </div>
-        </div>  
+        </div>
         <h3 class="archive-separator">2023年08月</h3>
         <div class="archives-list">
           <div class="archives-item">
@@ -183,7 +183,7 @@
               </ul>
             </div>
           </div>
-        </div>         
+        </div>
       </div>
     </div>
 </template>
@@ -200,11 +200,10 @@
     min-height: calc(100vh - 270px);
   }
   .archive-separator{
-    margin: 10px 0;
     color: #3f51b5;
     font-size: 16px;
     font-weight: bold;
-    margin-top: 30px;
+    margin: 30px 0 10px;
   }
   .main-wrapper {
     flex: 1;
@@ -241,7 +240,7 @@
     border: 2px solid #fff;
     overflow: hidden;
     box-shadow: 0 2px 5px 0 rgba(0,0,0,0.16), 0 2px 10px 0 rgba(0,0,0,0.12);
-  }  
+  }
   .archives-title{
     font-size: 18px;
     margin-bottom: 0;
