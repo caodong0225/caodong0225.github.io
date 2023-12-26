@@ -1,1 +1,0 @@
-项目中information.txt存放的是词频统计数量，frequency.txt存放的是每个字母的哈夫曼树编码，weightdata.txt存放的是词向量字典，笔者用的是50大小的一维向量，strudata.txt存放的是每个哈夫曼树节点的权重参数，train.py是训练代码，predict.py是预测代码，dataset.txt存放的是训练数据，halfmantree.py是读取information.txt中每个词的词频，绘制哈夫曼编码，并写入frequency.txt中。
