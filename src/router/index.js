@@ -56,123 +56,123 @@ export default new Router({
       path: '/blog/jingziqi',
       name: 'Jingziqi',
       component: Jingziqi,
-    }, 
+    },
     {
       path: '/blog/newyork',
       name: 'Newyork',
       component: Newyork,
-    }, 
+    },
     {
       path: '/cv',
       name: 'CV',
       component: CV,
-    }, 
+    },
     {
       path: '/game',
       name: 'Game',
       component: Game,
-    }, 
+    },
     {
       path: '/nlp',
       name: 'NLP',
       component: NLP,
-    }, 
+    },
     {
       path: '/crypto',
       name: 'Crypto',
       component: Crypto,
-    },  
+    },
     {
       path: '/ai',
       name: 'AI',
       component: AI,
-    },  
+    },
     {
       path: '/aidemo',
       name: 'AIdemo',
       component: AIdemo,
-    }, 
+    },
     {
       path: '/blog/number_detect',
       name: 'Number_detect',
       component: Number_detect,
-    },   
+    },
     {
       path: '/ctf',
       name: 'CTF',
       component: CTF,
-    },  
+    },
     {
       path: '/archives/article1',
       name: 'Article1',
       component: Article1,
-    }, 
+    },
     {
       path: '/archives/article2',
       name: 'Article2',
       component: Article2,
-    }, 
+    },
     {
       path: '/archives/article3',
       name: 'Article3',
       component: Article3,
-    }, 
+    },
     {
       path: '/archives/article4',
       name: 'Article4',
       component: Article4,
-    }, 
+    },
     {
       path: '/archives/article5',
       name: 'Article5',
       component: Article5,
-    }, 
+    },
 
         {
       path: '/archives/article6',
       name: 'Article6',
       component: Article6,
-    }, 
+    },
     {
       path: '/archives/article7',
       name: 'Article7',
       component: Article7,
-    }, 
+    },
     {
       path: '/archives/article8',
       name: 'Article8',
       component: Article8,
-    }, 
+    },
     {
       path: '/archives/article9',
       name: 'Article9',
       component: Article9,
-    }, 
+    },
     {
       path: '/archives/article10',
       name: 'Article10',
       component: Article10,
-    }, 
+    },
     {
       path: '/archives/article11',
       name: 'Article11',
       component: Article11,
-    }, 
+    },
     {
       path: '/archives/article12',
       name: 'Article12',
       component: Article12,
-    }, 
+    },
     {
       path: '/archives/article13',
       name: 'Article13',
       component: Article13,
-    }, 
+    },
     {
       path: '/blog/tanchishe',
       name: 'Tanchishe',
       component: Tanchishe,
-    },            
+    },
     {
       path: '/home',
       name: 'Home',
@@ -184,6 +184,6 @@ export default new Router({
       component: Archives,
     },
   ],
-  mode: 'history'
-  
+  mode: 'hash'
+
 })
