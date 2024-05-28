@@ -2,8 +2,8 @@
 const GLOBAL = {
     author_name : "caodong0225",
     games: [
-        {picture: 'static/images/1.png', url: '/game/index1', date: '2022年07月10日', title: '五子棋小游戏', description: '五子棋小游戏，目前单人模式还没做完，悔棋功能无法使用', tags: ['unity游戏开发']},
-        {picture: 'static/images/2.png', url: '/game/index2', date: '2023年01月05日', title: '井字棋小游戏', description: '井字棋小游戏，加入了极大极小值算法，可以单人和AI对战', tags: ['unity游戏开发','极大极小值算法']},
+        {picture: 'static/images/1.png', url: '/game/index2', date: '2022年07月10日', title: '五子棋小游戏', description: '五子棋小游戏，目前单人模式还没做完，悔棋功能无法使用', tags: ['unity游戏开发']},
+        {picture: 'static/images/2.png', url: '/game/index1', date: '2023年01月05日', title: '井字棋小游戏', description: '井字棋小游戏，加入了极大极小值算法，可以单人和AI对战', tags: ['unity游戏开发','极大极小值算法']},
         {picture: 'static/images/3.png', url: '/game/index3', date: '2023年08月04日', title: '贪吃蛇小游戏', description: '贪吃蛇小游戏，Unity练手用的', tags: ['unity游戏开发']},
         {picture: 'static/images/4.png', url: '/game/index4', date: '2023年09月16日', title: '纽约市地图', description: '第一次做3D游戏，把下载下来的两个素材整合了一下', tags: ['unity游戏开发']},
     ],
