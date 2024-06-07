@@ -4,12 +4,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "copy-file": "copy dev\\index.html index.html",
-    "vite-dev": "vite",
-    "vite-build": "vite build",
-    "dev": "npm-run-all copy-file vite-dev",
-    "remove": "rimraf assets",
-    "build": "npm-run-all copy-file remove vite-build",
+    "dev": "vite",
+    "build": "vite build",
     "preview": "vite preview"
   },
   "dependencies": {
