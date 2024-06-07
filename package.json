@@ -16,7 +16,7 @@
     "vue3-pdf-app": "^1.0.3"
   },
   "devDependencies": {
-    "@vitejs/plugin-vue": "^5.0.3",
+    "@vitejs/plugin-vue": "^5.0.5",
     "rimraf": "^5.0.5",
     "vite": "^5.0.11"
   }
