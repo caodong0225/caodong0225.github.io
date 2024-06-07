@@ -10,25 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v2
-      with:
-        ref: blog
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        with:
+          ref: blog
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '18'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '18'
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build static files
-      run: npm run build
+      - name: Build static files
+        run: npm run build
 
-    - name: Deploy to GitHub Pages
-      uses: peaceiris/actions-gh-pages@v3
-      with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        publish_dir: ./assets
-        publish_branch: main
+      - name: Deploy to GitHub Pages
+        env:
+          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add -f build
+          git commit -m 'Deploy to main branch'
+          git push -f https://${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/caodong0225/caodong0225.github.io.git `git subtree split --prefix build blog`:main
