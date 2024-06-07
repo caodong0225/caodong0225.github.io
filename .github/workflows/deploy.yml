@@ -1,19 +1,17 @@
-name: Build and Deploy to GitHub Pages
+name: Deploy to main branch
 
 on:
   push:
     branches:
-      - blog
+      - master
 
 jobs:
-  build-and-deploy:
+  build:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v2
-        with:
-          ref: blog
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -23,15 +21,17 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build static files
+      - name: Build project
         run: npm run build
 
-      - name: Deploy to GitHub Pages
-        env:
-          ACTIONS_DEPLOY_KEY: ${{ secrets.ACTIONS_DEPLOY_KEY }}
+      - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git add -f build
-          git commit -m 'Deploy to main branch'
-          git push -f https://${{ secrets.ACTIONS_DEPLOY_KEY }}@github.com/caodong0225/caodong0225.github.io.git `git subtree split --prefix build blog`:main
+          git checkout main
+          cp -r assets/* .
+          git add .
+          git commit -m "Deploy to main branch"
+          git push origin main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
