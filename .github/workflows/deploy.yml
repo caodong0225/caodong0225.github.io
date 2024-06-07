@@ -26,11 +26,6 @@ jobs:
     - name: Build static files
       run: npm run build
 
-    - name: Copy additional files
-      run: |
-        cp -r static ./static
-        cp global.js ./global.js
-
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
