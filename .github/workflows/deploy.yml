@@ -35,7 +35,7 @@ jobs:
 
       - name: Copy built assets
         run: |
-          cp -r ./path/to/build/output/* .
+          cp -r dist/* .
 
       - name: Commit and push changes
         run: |
