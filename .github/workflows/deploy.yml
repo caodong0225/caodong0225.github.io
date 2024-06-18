@@ -36,8 +36,7 @@ jobs:
 
       - name: Checkout main branch
         run: |
-          git fetch origin main  # 拉取远程 main 分支的最新内容
-          git checkout main || git checkout -b main
+          git checkout -b main # 创建并切换到 main 分支
 
       - name: Copy built assets
         run: |
