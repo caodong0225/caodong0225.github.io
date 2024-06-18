@@ -36,7 +36,6 @@ jobs:
       - name: Copy built assets
         run: |
           cp -r assets/* .
-          cp -r static/* static
 
       - name: Commit and push changes
         run: |
