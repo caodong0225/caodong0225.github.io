@@ -1,4 +1,4 @@
-name: Deploy to GitHub Pages
+name: 部署到 GitHub Pages
 
 on:
   push:
@@ -9,26 +9,29 @@ jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
 
+    permissions:
+      id-token: write  # 确保 GITHUB_TOKEN 具有所需的权限
+
     steps:
-      - name: Checkout blog branch
+      - name: 检出 blog 分支
         uses: actions/checkout@v2
         with:
           ref: blog
 
-      - name: Set up Node.js
+      - name: 设置 Node.js 环境
         uses: actions/setup-node@v2
         with:
-          node-version: '18'  # 根据你的项目需求设置正确的 Node.js 版本
+          node-version: '18'
 
-      - name: Install dependencies
+      - name: 安装依赖
         run: npm install
 
-      - name: Build project
+      - name: 构建项目
         run: npm run build
 
-      - name: Deploy to GitHub Pages
+      - name: 部署到 GitHub Pages
         uses: actions/deploy-pages@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          source: ./  # 指定 Jekyll 构建后的站点文件夹路径
-          branch: gh-pages  # 推送到 GitHub Pages 的分支，通常是 gh-pages
+          source: ./_site  # 根据你的 Jekyll 构建输出目录调整
+          branch: gh-pages
