@@ -18,7 +18,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
-          node-version: '18'
+          node-version: '18'  # 根据你的项目需求设置正确的 Node.js 版本
 
       - name: Install dependencies
         run: npm install
@@ -30,8 +30,11 @@ jobs:
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git fetch origin
+          git fetch origin main  # 拉取远程 main 分支的最新内容
           git checkout main || git checkout -b main
+
+      - name: Merge changes from blog branch
+        run: git merge --ff-only blog  # 尝试快进合并从 blog 分支的更改到 main 分支
 
       - name: Copy built assets
         run: |
