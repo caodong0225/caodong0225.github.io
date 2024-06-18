@@ -34,7 +34,9 @@ jobs:
           git checkout main || git checkout -b main
 
       - name: Merge changes from blog branch
-        run: git merge --ff-only blog  # 尝试快进合并从 blog 分支的更改到 main 分支
+        run: |
+          git pull origin main
+          git push -u origin main
 
       - name: Copy built assets
         run: |
