@@ -35,7 +35,7 @@ const GLOBAL = {
             ]
         },
         {month:'2023年08月', content: [
-            {picture: 'static/images/springboot+mybatisplus框架.png', url: '/archives/springboot+mybatisplus框架', date: '2023年08月23日', title: 'Java学习笔记一——springboot+mybatisplus框架', tags: ['Java']},
+            {picture: 'static/images/springboot+mybatisplus框架.png', url: '/archives/springboot+mybatisplus框架', date: '2023年08月23日', title: 'Java学习笔记一——springboot和mybatisplus框架', tags: ['Java']},
             {picture: 'static/images/基于aaegan的手写英文欺骗样本生成.png', url: '/archives/基于aaegan的手写英文欺骗样本生成', date: '2023年08月29日', title: '人工智能学习笔记十——基于aaegan的手写英文欺骗样本生成', tags: ['人工智能']},
             {picture: 'static/images/基于crnn+ctc的验证码识别机制.png', url: '/archives/基于crnn+ctc的验证码识别机制', date: '2023年08月29日', title: '人工智能学习笔记十一——基于crnn+ctc的验证码识别机制', tags: ['人工智能', '计算机视觉']},
         ]
