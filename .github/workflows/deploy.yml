@@ -36,7 +36,7 @@ jobs:
       - name: Reset main branch to master branch's last commit
         run: |
           git fetch origin master
-          git reset --hard origin/master
+          git reset --hard origin/blog
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
