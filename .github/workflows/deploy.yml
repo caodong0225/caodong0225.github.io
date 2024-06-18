@@ -28,19 +28,26 @@ jobs:
 
       - name: Checkout main branch
         run: |
-          git config --global user.name 'github-actions[bot]'
-          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git fetch origin
           git checkout main || git checkout -b main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Delete all files on main branch
+        run: |
+          git rm -rf .
+          git clean -fdx
 
       - name: Copy built assets
         run: |
-          cp -r assets/* .
+          cp -r dist/* .
 
       - name: Commit and push changes
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add .
           git commit -m "Deploy to main branch"
           git push origin main
