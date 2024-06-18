@@ -40,7 +40,7 @@ jobs:
 
       - name: Copy built assets
         run: |
-          cp -r dist/* .
+          cp -r assets/* .
 
       - name: Commit and push changes
         env:
