@@ -3,15 +3,17 @@ name: Deploy to main branch
 on:
   push:
     branches:
-      - master
+      - blog
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
+      - name: Checkout blog branch
         uses: actions/checkout@v2
+        with:
+          ref: blog
 
       - name: Set up Node.js
         uses: actions/setup-node@v2
@@ -24,12 +26,21 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Checkout main branch
+        run: |
+          git fetch origin
+          git checkout main
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Copy built assets
+        run: |
+          cp -r ./path/to/build/output/* .
+
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
-          git checkout main
-          cp -r assets/* .
           git add .
           git commit -m "Deploy to main branch"
           git push origin main
